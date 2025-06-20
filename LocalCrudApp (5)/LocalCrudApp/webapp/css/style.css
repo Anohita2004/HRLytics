@@ -1,0 +1,81 @@
+.mainContainer {
+    padding: 2rem;
+    background-color: var(--sapBackgroundColor);
+    gap: 2rem;
+}
+
+.headerBar {
+    width: 100%;
+    padding: 1rem;
+    background: var(--sapAccentColor1);
+    color: var(--sapTextColor);
+    border-radius: 8px;
+}
+
+.formBox {
+    gap: 1rem;
+    background-color: var(--sapTile_Background);
+    padding: 1rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.actionBox, .searchSortBox {
+    gap: 1rem;
+}
+
+.cardContainer {
+    gap: 1rem;
+    justify-content: center;
+}
+
+.itemCard {
+    border: 1px solid var(--sapAccentColor5);
+    border-radius: 10px;
+    padding: 1rem;
+    margin: 0.5rem;
+    background-color: var(--sapTile_Background);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+}
+
+.itemCard:hover {
+    transform: scale(1.05);
+    cursor: pointer;
+}
+
+.cardTitle {
+    font-weight: bold;
+    color: var(--sapHighlightColor);
+}
+
+.cardText {
+    font-size: 0.95rem;
+    color: var(--sapTextColor);
+}
+
+.itemCountText {
+    font-style: italic;
+    color: var(--sapContent_LabelColor);
+}
+.itemCard {
+    border: 1px solid #ccc;
+    padding: 12px;
+    margin: 10px;
+    border-radius: 8px;
+    box-shadow: 1px 1px 5px rgba(0,0,0,0.1);
+    background-color: white;
+    transition: transform 0.2s ease;
+}
+
+.itemCard:hover {
+    transform: scale(1.02);
+    box-shadow: 2px 2px 8px rgba(0,0,0,0.2);
+}
+
+.cardButton {
+    font-weight: bold;
+    font-size: 16px;
+    color: #333;
+}
+

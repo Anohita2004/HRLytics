@@ -1,0 +1,127 @@
+<mvc:View
+    controllerName="LocalCrudApp.controller.Main"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+    displayBlock="true">
+	<ScrollContainer height="100%" vertical="true" horizontal="false">
+
+    <VBox class="mainContainer" alignItems="Center" justifyContent="Center">
+
+        <!-- Header and Theme Toggle -->
+        <HBox justifyContent="SpaceBetween" class="headerBar">
+            <Title text="Local CRUD App" level="H2"/>
+            <Button text="🌗 Toggle Theme" press="onThemeToggle"/>
+        </HBox>
+
+        <!-- Form Section -->
+        <HBox class="formBox">
+            <VBox>
+                <Label text="ID"/>
+                <Input value="{path: '/form/id'}" width="200px" placeholder="Enter ID"/>
+            </VBox>
+            <VBox>
+                <Label text="Name"/>
+                <Input value="{path: '/form/name'}" width="200px" placeholder="Enter Name"/>
+            </VBox>
+            <VBox>
+                <Label text="Designation"/>
+                <Input value="{path: '/form/designation'}" width="200px" placeholder="Enter Designation"/>
+            </VBox>
+            <VBox>
+                <Label text="EMail"/>
+                <Input id="email" value="{path: '/form/email'}" width="200px" placeholder="Enter Email Id"/>
+            </VBox>
+            <VBox>
+                <Label text="Department"/>
+                <Input value="{path: '/form/department'}" width="200px" placeholder="Enter Department"/>
+            </VBox>
+        </HBox>
+         <HBox class="formBox">
+            <VBox>
+                <Label text="DateOfJoining"/>
+                 <DatePicker id="doj"
+    displayFormat="yyyy-MM-dd"
+    valueFormat="yyyy-MM-dd"
+    value="{path: '/form/doj'}" />
+            </VBox>
+            <VBox>
+                <Label text="Salary"/>
+                <Input value="{path: '/form/salary'}" width="200px" placeholder="Enter Salary"/>
+            </VBox>
+            <VBox>
+                <Label text="Location"/>
+                <Input value="{path: '/form/location'}" width="200px" placeholder="Enter Location"/>
+            </VBox>
+            <VBox>
+                <Label text="DateOfBirth"/>
+                <DatePicker id="dob"
+    displayFormat="yyyy-MM-dd"
+    valueFormat="yyyy-MM-dd"
+    value="{path: '/form/dob'}" />
+
+            </VBox>
+            <VBox>
+                <Label text="Status" />
+               <Select selectedKey="{path: '/form/status'}">
+                  <items>
+                  <core:Item key="Active" text="Active" />
+                  <core:Item key="Active" text="Active" />
+                  <core:Item key="OnLeave" text="On Leave" />
+                  <core:Item key="Left" text="Left" />
+                  </items>
+                </Select>
+            </VBox>
+        </HBox>
+        
+        <!-- Action Buttons -->
+        <HBox class="actionBox" justifyContent="Center">
+            <Button text="➕ Add" press="onAdd" type="Accept"/>
+            <Button text="✏️ Update" press="onUpdate" type="Emphasized"/>
+            <Button text="🗑️ Delete" press="onDelete" type="Reject"/>
+            <Button text="↩️ Undo" press="onUndo"/>
+            <Button text="📤 Export" press="onExport"/>
+            <Button
+                text="📊 View Dashboard"
+                press="onLaunchDashboard"
+                type="Emphasized"
+                icon="sap-icon://sys-monitor"/>
+        </HBox>
+
+        <!-- Search and Sort -->
+        <HBox class="searchSortBox" justifyContent="SpaceBetween">
+            <SearchField id="searchField" width="300px" placeholder="Search..." search="onFilter" liveChange="onFilter"/>
+            <HBox>
+                <Button icon="sap-icon://sort-ascending" press="onSortAsc"/>
+                <Button icon="sap-icon://sort-descending" press="onSortDesc"/>
+            </HBox>
+        </HBox>
+
+        <!-- Item Count -->
+        <Text text="Filtered: {/filteredCount} / Total: {/itemsCount}" class="itemCountText"/>
+
+        <!-- Cards Section -->
+        <ScrollContainer height="400px" vertical="true">
+            <FlexBox wrap="Wrap" class="cardContainer" items="{/filteredItems}">
+                <items>
+                    <VBox class="itemCard" width="250px" vAlign="Center">
+                        <Button
+                            type="Transparent"
+                            press="onCardSelect"
+                            width="100%"
+                            text="{name}"
+                            icon="sap-icon://account"
+                            iconFirst="true"
+                            tooltip="Click to select this item"/>
+                        <Text text="ID: {id}" class="cardTitle"/>
+                        <Text text="Designation: {designation}" class="cardText"/>
+                        <Text text="EMail: {email}" class="cardText"/>
+                        
+                    </VBox>
+                </items>
+            </FlexBox>
+        </ScrollContainer>
+
+    </VBox>
+    </ScrollContainer>
+</mvc:View>
